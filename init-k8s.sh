@@ -38,7 +38,6 @@ git clone https://github.com/Mirantis/cri-dockerd.git
 cd cri-dockerd
 mkdir bin
 go build -o bin/cri-dockerd
-cd ..
 
 sudo mkdir -p /usr/local/bin
 sudo install -o root -g root -m 0755 bin/cri-dockerd /usr/local/bin/cri-dockerd
@@ -47,6 +46,8 @@ sudo sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd
 sudo systemctl daemon-reload
 sudo systemctl enable cri-docker.service
 sudo systemctl enable --now cri-docker.socket
+
+cd ..
 
 # install kubelet, kubeadm, kubectl
 
