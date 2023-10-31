@@ -14,7 +14,7 @@ networking:
   podSubnet: "10.244.0.0/16"
 EOF
 
-sudo kubeadm init --config kubeadm-init.yaml
+sudo kubeadm init --config kubeadm-init.yml
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
